@@ -23,7 +23,7 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
 
 
-    // consumer.apply(JwtMiddleware).forRoutes('user');
+    consumer.apply(JwtMiddleware).forRoutes('user');
 
   }
 }
