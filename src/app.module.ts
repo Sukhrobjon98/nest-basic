@@ -12,16 +12,18 @@ import { ErrorFilter } from './common/filters/error.filter';
     signOptions: { expiresIn: '60s' },
     global: true,
   }), UserModule, ProductModule],
-  providers: [{
-    provide: APP_FILTER,
-    useClass: ErrorFilter
-  }],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: ErrorFilter
+    }
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
 
 
-    consumer.apply(JwtMiddleware).forRoutes('user');
+    // consumer.apply(JwtMiddleware).forRoutes('user');
 
   }
 }
